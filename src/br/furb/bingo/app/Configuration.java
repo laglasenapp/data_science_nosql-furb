@@ -32,6 +32,8 @@ public final class Configuration {
 	}
 	
 	private void carregar() throws IOException {
+		System.out.println("É possível informar um arquivo de propriedades customizado através do argumento JVM propertiesPath. "
+				+ "Caso nenhum arquivo de propriedades for informado, um arquivo padrão será utilizado.");
 		String caminhoArquivo = System.getProperty(JVM_ARG_PROPERTY_NAME);
 		InputStream stream;
 		if (StringUtils.isNotBlank(caminhoArquivo)) {
@@ -44,7 +46,7 @@ public final class Configuration {
 				propriedades.load(stream);
 			}
 		} else {
-				System.out.println(new File(NOME).toPath().toAbsolutePath());
+				System.out.println("Lendo as propriedades do arquivo: " + new File(NOME).toPath().toAbsolutePath());
 				stream = new BufferedInputStream(new FileInputStream(new File(NOME)));
 				propriedades.load(stream);
 		}

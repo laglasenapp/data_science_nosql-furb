@@ -40,8 +40,9 @@ public class OperacoesImpl implements Operacoes {
 		List<Cartela> cartelas = new ArrayList<Cartela>(quantidadeCartelas);
 		for (int i = 0; i < quantidadeCartelas; i++) {
 			Set<Integer> numeros = acoes.obterValoresRandomicos();
-			Cartela cartela = new Cartela("cartela:" + Integer.toString(i));
+			Cartela cartela = new Cartela("cartela" + Integer.toString(i+1));
 			cartela.adicionarNumeros(numeros);
+			cartelas.add(cartela);
 		}
 		acoes.salvarCartelas(cartelas);
 	}

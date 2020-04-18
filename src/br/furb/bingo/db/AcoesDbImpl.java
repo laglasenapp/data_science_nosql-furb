@@ -1,6 +1,5 @@
 package br.furb.bingo.db;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Properties;
@@ -35,13 +34,11 @@ public class AcoesDbImpl implements AcoesDB {
 		for (int i = min; i < max; i++) {
 			jedis.sadd(memberIntervalKey, String.valueOf(i));
 		}
-		System.out.println("Lista foi criada para a chave: " + memberIntervalKey);
 	}
 
 	@Override
 	public Set<Integer> obterValoresRandomicos() {
 		int count = Integer.parseInt(properties.getProperty("cartela.quantidadeMaxPermitida"));
-		System.out.println("Quantidade máxima de números permitidos em uma cartela: " + count);
 		Set<String> resultadoStr = randomR(memberIntervalKey, count);
 		Set<Integer> resultadoInt = resultadoStr.stream().map(Integer::parseInt).collect(Collectors.toSet());
 		return resultadoInt;
@@ -58,23 +55,23 @@ public class AcoesDbImpl implements AcoesDB {
 
 	@Override
 	public void salvarCartelas(List<Cartela> cartelas) {
+		System.out.println("Salvando os valores das cartelas no Redis");
 		for (Cartela cartela : cartelas) {
 			Set<Integer> numeros = cartela.getNumeros();
-			String listaNumeros = converterNumeros(numeros);
-			jedis.hset(cartela.getNome(), "numeros", listaNumeros);
+			String[] numerosStr = converter2String(numeros);
+			jedis.rpush(cartela.getNome(), numerosStr);
 		}
 	}
 
-	private String converterNumeros(Set<Integer> numeros) {
-		StringBuilder sb = new StringBuilder();
-		List<Integer> lista = new ArrayList<>(numeros);
-		for (int i = 0; i < lista.size(); i++) {
-			sb.append(lista.get(i));
-			if (i != (numeros.size() - 1)){
-				sb.append(",");
-			}
+	private String[] converter2String(Set<Integer> numeros) {
+		String[] vetor = new String[numeros.size()];
+		int index = 0;
+		for (Integer numero : numeros) {
+			vetor[index] = new String(Integer.toString(numero));
+			index++;
 		}
-		return sb.toString();
+		return vetor;
 	}
+
 
 }

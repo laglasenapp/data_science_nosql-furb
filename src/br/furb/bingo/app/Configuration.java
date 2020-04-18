@@ -11,7 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 
 public final class Configuration {
 
-	private static final String NOME = "../../../../bingo.properties";
+	private static final String NOME = "src/resources/bingo.properties";
 
 	private static final String JVM_ARG_PROPERTY_NAME = "propertiesPath";
 
@@ -44,8 +44,8 @@ public final class Configuration {
 				propriedades.load(stream);
 			}
 		} else {
-				System.out.println("Lendo as propriedades do arquivo: " + getClass().getResource(NOME).getPath());
-				stream = getClass().getResourceAsStream(NOME);
+				System.out.println(new File(NOME).toPath().toAbsolutePath());
+				stream = new BufferedInputStream(new FileInputStream(new File(NOME)));
 				propriedades.load(stream);
 		}
 	}

@@ -1,10 +1,8 @@
 package br.furb.bingo.model;
 
-import java.util.HashSet;
 import java.util.Set;
 
-import br.furb.bingo.excecoes.NumeroMaximoAtingidoException;
-
+	
 /**
  * Classe representa uma cartela
  * 
@@ -14,18 +12,17 @@ import br.furb.bingo.excecoes.NumeroMaximoAtingidoException;
 public class Cartela {
 	
 	/** Números na cartela */
-	private Set<Integer> numeros = new HashSet<>();
+	private Set<Integer> numeros;
 	
-	/** Quantidade restritiva de números em uma cartela */
-	private int numeroMaximo;
+	private String nome;
 	
 	/**
 	 * Método construtor
 	 * 
 	 * @param numeroMaximo
 	 */
-	public Cartela(short numeroMaximo) {
-		this.numeroMaximo = numeroMaximo;
+	public Cartela(String nome) {
+		this.nome = nome;
 	}
 
 	/**
@@ -33,18 +30,17 @@ public class Cartela {
 	 * 
 	 * @param numero
 	 * @return
-	 * @throws NumeroMaximoAtingidoException 
 	 */
-	public boolean adiciona(Integer numero) throws NumeroMaximoAtingidoException {
+	public boolean adiciona(Integer numero)  {
 		if (!numeros.contains(numero)) {
 			numeros.add(numero);
-			int quantidadeAtual = numeros.size();
-			if (numeros.size() > numeroMaximo) {
-				throw new NumeroMaximoAtingidoException(quantidadeAtual, numeroMaximo);
-			}
 			return true;
 		}
 		return false;
+	}
+	
+	public void adicionarNumeros(Set<Integer> numeros) {
+		this.numeros = numeros;
 	}
 	
 	/**
@@ -84,5 +80,9 @@ public class Cartela {
 	@Override
 	public String toString() {
 		return "Cartela [numeros=" + numeros + "]";
+	}
+
+	public String getNome() {
+		return nome;
 	}
 }

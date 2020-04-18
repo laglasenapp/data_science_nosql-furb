@@ -18,10 +18,25 @@ public interface Operacoes {
 	public void gerarESalvarCartelas();
 	
 	/**
-	 * Tirar pedra
+	 * Sortear uma pedra e incrementar o score quando necessário
 	 * 
 	 * @return
+	 * @throws PossibilidadeSorteioEsgotadasException 
 	 */
-	public List<Usuario> sortearPedraEVerificarGanhadores();
+	public void sortearPedraEIncrementarScore() throws PossibilidadeSorteioEsgotadasException;
+	
+	/**
+	 * Verifica e retorna a lista de vencedores
+	 * 
+	 * @return {@link List} de {@link Usuario}
+	 */
+	public List<Usuario> listaVencedores();
+
+	/**
+	 * Números sorteados 
+	 * 
+	 * @return {@link String}
+	 */
+	public String numerosSortados();
 
 }

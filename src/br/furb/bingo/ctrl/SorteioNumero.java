@@ -23,10 +23,10 @@ public final class SorteioNumero {
 		this.min = min;
 	}
 
-	public synchronized Integer sortear() {
-		if (numerosSorteados.size() == max) {
-			System.out.println("Todos os números possíveis já foram sorteados! Valor máximo: " + max);
-			return null;
+	public synchronized Integer sortear() throws PossibilidadeSorteioEsgotadasException {
+		int setSize = numerosSorteados.size() + 1;
+		if (setSize == max) {
+			throw new PossibilidadeSorteioEsgotadasException(max);
 		}
 		Integer numero = new Random().nextInt(max);
 		if (numero < min || numerosSorteados.contains(numero)) {
@@ -34,6 +34,10 @@ public final class SorteioNumero {
 		}
 		numerosSorteados.add(numero);
 		return numero;
+	}
+	
+	public final Set<Integer> getNumerosSorteados(){
+		return numerosSorteados;
 	}
 	
 	

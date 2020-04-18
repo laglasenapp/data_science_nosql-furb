@@ -8,33 +8,43 @@ package br.furb.bingo.model;
  */
 public class Usuario {
 	
+	/** Prefixo do nome da pessoa */
+	private static final String PREFIXO_PESSOA = "user:";
+	
 	/** Nome do usuário */
 	private String nome;
 	
 	/** {@link Cartela} do usuário*/
 	private Cartela cartela;
+	
+	/** Id */
+	private Integer id;
 
+	public Usuario(Integer id, Cartela cartela) {
+		this.id = id;
+		this.cartela = cartela;
+		this.nome = PREFIXO_PESSOA + id;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 
 	public Cartela getCartela() {
 		return cartela;
 	}
 
-	public void setCartela(Cartela cartela) {
-		this.cartela = cartela;
+	public Integer getId() {
+		return id;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((cartela == null) ? 0 : cartela.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
@@ -53,6 +63,11 @@ public class Usuario {
 				return false;
 		} else if (!cartela.equals(other.cartela))
 			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (nome == null) {
 			if (other.nome != null)
 				return false;
@@ -63,7 +78,9 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", cartela=" + cartela + "]";
+		StringBuilder sb = new StringBuilder();
+		sb.append("Nome= " + nome);
+		sb.append(" Cartela [" + cartela + "]");
+		return sb.toString();
 	}
-	
 }

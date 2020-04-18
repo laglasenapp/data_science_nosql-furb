@@ -11,9 +11,13 @@ import java.util.Set;
  */
 public class Cartela {
 	
+	/** Prefixo do nome da cartela */
+	private static final String PREFIXO_CARTELA = "cartela";
+	
 	/** Números na cartela */
 	private Set<Integer> numeros;
 	
+	/** Nome */
 	private String nome;
 	
 	/**
@@ -21,8 +25,8 @@ public class Cartela {
 	 * 
 	 * @param numeroMaximo
 	 */
-	public Cartela(String nome) {
-		this.nome = nome;
+	public Cartela(Integer id) {
+		this.nome = PREFIXO_CARTELA + id;
 	}
 
 	/**
@@ -52,10 +56,15 @@ public class Cartela {
 		return numeros;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((numeros == null) ? 0 : numeros.hashCode());
 		return result;
 	}
@@ -69,6 +78,11 @@ public class Cartela {
 		if (getClass() != obj.getClass())
 			return false;
 		Cartela other = (Cartela) obj;
+		if (nome == null) {
+			if (other.nome != null)
+				return false;
+		} else if (!nome.equals(other.nome))
+			return false;
 		if (numeros == null) {
 			if (other.numeros != null)
 				return false;
@@ -79,10 +93,7 @@ public class Cartela {
 
 	@Override
 	public String toString() {
-		return "Cartela [numeros=" + numeros + "]";
+		return "Numeros=" + numeros;
 	}
-
-	public String getNome() {
-		return nome;
-	}
+	
 }

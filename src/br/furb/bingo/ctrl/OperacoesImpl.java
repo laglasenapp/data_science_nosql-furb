@@ -21,19 +21,19 @@ import br.furb.bingo.model.Usuario;
  */
 public class OperacoesImpl implements Operacoes {
 
-	/** Atributo {@link AcoesDB} para as ações do banco */
+	/** Atributo {@link AcoesDB} para as aÃ§Ãµes do banco */
 	private AcoesDB acoes;
 	
 	/** Atributo {@link Properties} contendo as propriedades do sistema */
 	private Properties properties;
 	
-	/** Atributo {@link SorteioNumero} para realização dos sorteios */
+	/** Atributo {@link SorteioNumero} para realizaÃ§Ã£o dos sorteios */
 	private SorteioNumero sorteioNumero;
 	
-	/** Lista de usuários */
+	/** Lista de usuÃ¡rios */
 	private List<Usuario> usuarios;
 	
-	/** Método construtor */
+	/** MÃ©todo construtor */
 	public OperacoesImpl() {
 		properties = Configuration.getInstance().getProperties();
 		acoes = new AcoesDbImpl();
@@ -62,7 +62,7 @@ public class OperacoesImpl implements Operacoes {
 	@Override
 	public void sortearPedraEIncrementarScore() throws PossibilidadeSorteioEsgotadasException {
 		Integer numeroSorteado = sorteioNumero.sortear();
-		System.out.println("Número sorteado: " + numeroSorteado);
+		System.out.println("NÃºmero sorteado: " + numeroSorteado);
 		List<Usuario> listaPessoaComNumeroSorteadoNaCartela = listaPessoaComNumeroNaCartela(numeroSorteado);
 		acoes.incrementarScore(listaPessoaComNumeroSorteadoNaCartela);
 	}

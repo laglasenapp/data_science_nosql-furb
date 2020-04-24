@@ -16,7 +16,7 @@ import br.furb.bingo.model.Usuario;
 public class Bingo {
 	
 	/**
-	 * Método principal
+	 * MÃ©todo principal
 	 * 
 	 * @param args
 	 */
@@ -44,10 +44,10 @@ public class Bingo {
 			System.out.println("Lista de vencedores:");
 			vencedores.forEach(v -> System.out.println(v));
 		} else {
-			System.out.println("Não existem vencedores!");
+			System.out.println("NÃ£o existem vencedores!");
 		}
 		System.out.println("");
-		System.out.println("Números sorteados:");
+		System.out.println("NÃºmeros sorteados:");
 		System.out.println(operacoes.numerosSortados());
 	}
 

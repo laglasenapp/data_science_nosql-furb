@@ -29,7 +29,7 @@ public class AcoesDbImpl implements AcoesDB {
 	private String memberIntervalKey;
 
 	/**
-	 * MÈtodo construtor
+	 * M√©todo construtor
 	 */
 	public AcoesDbImpl() {
 		this.properties = Configuration.getInstance().getProperties();
@@ -39,14 +39,14 @@ public class AcoesDbImpl implements AcoesDB {
 	}
 
 	/**
-	 * Prepara os dados a serem utilizados na funÁ„o do banco
+	 * Prepara os dados a serem utilizados na fun√ß√£o do banco
 	 */
 	private void prepararDados() {
 		jedis.flushAll();
 		int min = Integer.parseInt(properties.getProperty("sorteio.numeroMinimo"));
-		System.out.println("Valor minÌmo: " + min);
+		System.out.println("Valor m√≠nimo: " + min);
 		int max = Integer.parseInt(properties.getProperty("sorteio.numeroMaximo"));
-		System.out.println("Valor m·ximo: " + max);
+		System.out.println("Valor m√°ximo: " + max);
 		for (int i = min; i < max; i++) {
 			jedis.sadd(memberIntervalKey, String.valueOf(i));
 		}
@@ -61,7 +61,7 @@ public class AcoesDbImpl implements AcoesDB {
 	}
 
 	/**
-	 * MÈtodo recursivo para obter um set do tipo {@link String}
+	 * M√©todo recursivo para obter um set do tipo {@link String}
 	 * 
 	 * @param key
 	 * @param count
@@ -78,7 +78,7 @@ public class AcoesDbImpl implements AcoesDB {
 
 	@Override
 	public void salvarUsuarios(List<Usuario> usuarios) {
-		System.out.println("Salvando os valores da cartela e do usu·rio");
+		System.out.println("Salvando os valores da cartela e do usu√°rio");
 		for (Usuario usuario : usuarios) {
 			Cartela cartela = usuario.getCartela();
 			Set<Integer> numeros = cartela.getNumeros();
@@ -118,7 +118,7 @@ public class AcoesDbImpl implements AcoesDB {
 	public void incrementarScore(List<Usuario> listaPessoaComNumeroNaCartela) {
 		for (Usuario usuario : listaPessoaComNumeroNaCartela) {
 			Double novoScore = jedis.zincrby("bscore", 1d, Integer.toString(usuario.getId()));
-			System.out.println("Aumentando o score do usu·rio " + usuario.getNome() + " novo score: " + novoScore);
+			System.out.println("Aumentando o score do usu√°rio " + usuario.getNome() + " novo score: " + novoScore);
 		}
 	}
 

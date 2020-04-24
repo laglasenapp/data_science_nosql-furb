@@ -1,7 +1,7 @@
 package br.furb.bingo.model;
 
 /**
- * Classe representa um usu·rio
+ * Classe representa um usu√°rio
  * 
  * @author Luiz
  *
@@ -11,10 +11,10 @@ public class Usuario {
 	/** Prefixo do nome da pessoa */
 	private static final String PREFIXO_PESSOA = "user:";
 	
-	/** Nome do usu·rio */
+	/** Nome do usu√°rio */
 	private String nome;
 	
-	/** {@link Cartela} do usu·rio*/
+	/** {@link Cartela} do usu√°rio*/
 	private Cartela cartela;
 	
 	/** Id */

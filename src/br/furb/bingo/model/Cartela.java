@@ -14,14 +14,14 @@ public class Cartela {
 	/** Prefixo do nome da cartela */
 	private static final String PREFIXO_CARTELA = "cartela";
 	
-	/** Números na cartela */
+	/** NÃºmeros na cartela */
 	private Set<Integer> numeros;
 	
 	/** Nome */
 	private String nome;
 	
 	/**
-	 * Método construtor
+	 * MÃ©todo construtor
 	 * 
 	 * @param numeroMaximo
 	 */
@@ -30,7 +30,7 @@ public class Cartela {
 	}
 
 	/**
-	 * Adiciona o número a uma cartela
+	 * Adiciona o nÃºmero a uma cartela
 	 * 
 	 * @param numero
 	 * @return
@@ -48,7 +48,7 @@ public class Cartela {
 	}
 	
 	/**
-	 * Obtem os números da cartela
+	 * Obtem os nÃºmeros da cartela
 	 * 
 	 * @return Set<Integer>
 	 */

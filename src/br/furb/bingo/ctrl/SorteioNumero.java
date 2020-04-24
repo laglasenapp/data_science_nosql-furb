@@ -5,7 +5,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * Classe responsável por sortear um número único
+ * Classe responsÃ¡vel por sortear um nÃºmero Ãºnico
  * 
  * @author Luiz
  *

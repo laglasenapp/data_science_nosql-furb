@@ -32,14 +32,12 @@ public final class Configuration {
 	}
 	
 	private void carregar() throws IOException {
-		System.out.println("É possível informar um arquivo de propriedades customizado através do argumento JVM propertiesPath. "
-				+ "Caso nenhum arquivo de propriedades for informado, um arquivo padrão será utilizado.");
 		String caminhoArquivo = System.getProperty(JVM_ARG_PROPERTY_NAME);
 		InputStream stream;
 		if (StringUtils.isNotBlank(caminhoArquivo)) {
 			File propertiesFile = new File(caminhoArquivo);
 			if (!propertiesFile.exists()) {
-				System.out.println("O arquivo não pode ser encontrado no diretório: " + caminhoArquivo);
+				System.out.println("O arquivo nÃ£o pode ser encontrado no diretÃ³rio: " + caminhoArquivo);
 			} else {
 				System.out.println("Lendo as propriedades do arquivo: " + propertiesFile.toPath().toAbsolutePath());
 				stream = new BufferedInputStream(new FileInputStream(propertiesFile));

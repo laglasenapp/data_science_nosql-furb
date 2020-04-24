@@ -6,7 +6,7 @@ import br.furb.bingo.app.Configuration;
 import redis.clients.jedis.Jedis;
 
 /**
- * Classe singleton para conex„o com o banco
+ * Classe singleton para conex√£o com o banco
  * 
  * @author Luiz
  *
@@ -19,19 +19,19 @@ public final class RedisConnection {
 	/** Nome da propriedade referente a porta do banco */
 	private static final String DB_PORT_KEY = "db.port";
 	
-	/** Hostname padr„o */
+	/** Hostname padr√£o */
 	private static final String DB_HOSTNAME_DEFAULT = "localhost";
 	
-	/** Porta padr„o */
+	/** Porta padr√£o */
 	private static final int DB_PORT_DEFAULT = 6379;
 
-	/** Conex„o */
+	/** Conex√£o */
 	private static RedisConnection connection;
 	
-	/** Conex„o ao Jedis */
+	/** Conex√£o ao Jedis */
 	private Jedis jedis;
 	
-	/** MÈtodo construtor */
+	/** M√©todo construtor */
 	private RedisConnection() {
 		Properties properties = Configuration.getInstance().getProperties();
 		String host = (String) properties.getOrDefault(DB_HOSTNAME_KEY, DB_HOSTNAME_DEFAULT);
@@ -41,7 +41,7 @@ public final class RedisConnection {
 		this.jedis = new Jedis(host, porta);
 	}
 	
-	/** MÈtodo para obter uma inst‚ncia da classe */
+	/** M√©todo para obter uma inst√¢ncia da classe */
 	public static RedisConnection getInstance() {
 		if (connection == null) {
 			connection = new RedisConnection();
@@ -49,7 +49,7 @@ public final class RedisConnection {
 		return connection;
 	}
 	
-	/** Obter a inst‚ncia do Jedis */
+	/** Obter a inst√¢ncia do Jedis */
 	public Jedis get() {
 		return jedis;
 	}

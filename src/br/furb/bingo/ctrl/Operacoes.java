@@ -5,7 +5,7 @@ import java.util.List;
 import br.furb.bingo.model.Usuario;
 
 /**
- * Interface com operações da aplicação 
+ * Interface com operaÃ§Ãµes da aplicacÃ£o 
  * 
  * @author Luiz
  *
@@ -18,7 +18,7 @@ public interface Operacoes {
 	public void gerarESalvarCartelas();
 	
 	/**
-	 * Sortear uma pedra e incrementar o score quando necessário
+	 * Sortear uma pedra e incrementar o score quando necessÃ¡rio
 	 * 
 	 * @return
 	 * @throws PossibilidadeSorteioEsgotadasException 
@@ -33,7 +33,7 @@ public interface Operacoes {
 	public List<Usuario> listaVencedores();
 
 	/**
-	 * Números sorteados 
+	 * NÃºmeros sorteados 
 	 * 
 	 * @return {@link String}
 	 */

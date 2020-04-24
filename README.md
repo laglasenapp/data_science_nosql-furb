@@ -2,7 +2,7 @@
 O Redinsgo é basicamente um bingo com estruturas em um banco chave/valor.
 
 ### Pré-requisito
-Possuir o banco Redis instalado localmente na porta 6379<br>
+Possuir o banco Redis instalado localmente na porta 6379.<br>
 Possuir JRE 8.0 ou posterior instalado.
 
 ### Execução

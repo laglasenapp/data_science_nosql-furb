@@ -47,7 +47,8 @@ db.pets.insert({name: "Frodo", species: "Hamster"})<br> db.pets.insert({name: "F
 <u>Cachorros</u><br>db.italians.find({dog: { $exists: true }}).count()</code><br><br><br>
 <code>
 <u>Quantas não tem nenhum dos dois</u><br> db.italians.find({cat: { $exists: false }, dog: {$exists: false}}).count() <br>
-</code>
+</code><br>
+
 ### 2.5 - Liste/Conte todas as pessoas acima de 60 anos que tenham gato
 <code>db.italians.find({"age": { "$gt": 60 }}, {cat: { $exists: true }}).count()</code>
 

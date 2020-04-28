@@ -42,10 +42,12 @@ db.pets.insert({name: "Frodo", species: "Hamster"})<br> db.pets.insert({name: "F
 
 ### 2.4 - Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
 <code>
-<u>Gatos</u><br>db.italians.find({cat: { $exists: true }}).count()</code><br><br><br>
+<u>Gatos</u><br>
+db.italians.find({cat: { $exists: true }}).count()</code><br><br><br>
 <code>
-<u>Cachorros</u><br>db.italians.find({dog: { $exists: true }}).count()</code><br><br><br>
-<code>
+<u>Cachorros</u><br>
+db.italians.find({dog: { $exists: true }}).count()</code><br><br><br>
+<code><br>
 <u>Quantas não tem nenhum dos dois</u><br> db.italians.find({cat: { $exists: false }, dog: {$exists: false}}).count() <br>
 </code><br>
 

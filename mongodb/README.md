@@ -41,14 +41,15 @@ db.pets.insert({name: "Frodo", species: "Hamster"})<br> db.pets.insert({name: "F
 <code>db.italians.find({"age": { "$gte": 12, "$lte": 18 }}).count()</code>
 
 ### 2.4 - Identifique quantas pessoas tem gatos, quantas tem cachorro e quantas não tem nenhum dos dois
-<code>
 <u>Gatos</u><br>
-db.italians.find({cat: { $exists: true }}).count()</code><br><br><br>
 <code>
+db.italians.find({cat: { $exists: true }}).count()</code><br><br><br>
 <u>Cachorros</u><br>
+<code>
 db.italians.find({dog: { $exists: true }}).count()</code><br><br><br>
+<u>Quantas não tem nenhum dos dois</u><br>
 <code><br>
-<u>Quantas não tem nenhum dos dois</u><br> db.italians.find({cat: { $exists: false }, dog: {$exists: false}}).count() <br>
+db.italians.find({cat: { $exists: false }, dog: {$exists: false}}).count() <br>
 </code><br>
 
 ### 2.5 - Liste/Conte todas as pessoas acima de 60 anos que tenham gato

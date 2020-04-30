@@ -75,7 +75,7 @@ db.italians.find({ $and: [ { cat: { $exists: true }}, {$where: "this.age < this.
 db.italians.find( { $or: [ { $where: "this.cat && (this.firstname === this.cat.name)"}, { $where: "this.dog && (this.firstname === this.dog.name)"} ]})
 </code>
 
-### 2.10 - Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo R:<br><br>
+### 2.10 - Projete apenas o nome e sobrenome das pessoas com tipo de sangue de fator RH negativo R:
 <code>db.italians.find({ bloodType: /.*-$/ }, {firstname: 1, surname: 1})
 </code>
 

@@ -1,6 +1,6 @@
 # HBase
 
-### Exercício 1
+## Exercício 1
 ### Agora, de dentro da imagem faça os seguintes procedimentos:
 
 ### 1.1 Crie a tabela com 2 famílias de colunas: a. personal-data b. professional-data

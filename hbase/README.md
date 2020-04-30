@@ -1,4 +1,5 @@
 # HBase
+
 ### Exercício 1
 ### Agora, de dentro da imagem faça os seguintes procedimentos:
 

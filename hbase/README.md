@@ -1,15 +1,15 @@
 # HBase
 
 ## Exercício 1
-### Agora, de dentro da imagem faça os seguintes procedimentos:
+### 1 - Agora, de dentro da imagem faça os seguintes procedimentos:
 
-### 1.1 Crie a tabela com 2 famílias de colunas: a. personal-data b. professional-data
+### 1.1 - Crie a tabela com 2 famílias de colunas: a. personal-data b. professional-data
 <code>create 'italians', 'personal-data', 'professional-data'</code>
 
-### 1.2 Importe o arquivo via linha de comando
+### 1.2 - Importe o arquivo via linha de comando
 <code>hbase shell /tmp/italians.txt</code>
 
-### 2 Operações:
+### 2 - Operações:
 
 ### 2.1 - Adicione mais 2 italianos mantendo adicionando informações como data de nascimento nas informações pessoais e um atributo de anos de experiência nas informações profissionais;
 <code>put 'italians', '11', 'personal-data:name', 'Luiz Alfonso Glasenapp'</code><br>

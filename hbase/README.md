@@ -22,7 +22,7 @@
 <code>put 'italians', '12', 'professional-data:salary', '15000'</code><br>
 
 ### 2.2 - Adicione o controle de 5 versões na tabela de dados pessoais.
-<code>alter 'italians', NAME => 'personal-data', VERSIONS => 5</code>
+<code>alter 'italians', NAME => 'personal-data:salary', VERSIONS => 5</code>
 
 ### 2.3 - Faça 5 alterações em um dos italianos;
 <code>put 'italians', '11', 'personal-data:salary', '10000'</code><br>
